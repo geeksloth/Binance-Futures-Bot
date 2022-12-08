@@ -1,13 +1,16 @@
 from marshal import dumps
+#from binhex import Error
 from sys import exit
 from os import system, path, chdir
 from collections import defaultdict
 import sched, time
+#from cv2 import CALIB_NINTRINSIC
 from numpy.core.fromnumeric import resize
 import  requests 
 import numpy as np
 from requests import models 
 import talib as ta
+#from binance.client import Client
 from binance.um_futures import UMFutures as Futures
 from binance.error import ClientError
 import json
