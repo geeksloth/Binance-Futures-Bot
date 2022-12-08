@@ -24,7 +24,7 @@ You can easily run this bot with **Docker Compose** by following these steps:
 git clone https://github.com/geeksloth/binance-futures-bot.git && cd binance-futures-bot
 ```
 
-2. Add your keys in the `config.json` file
+2. Change `config-dist.json` to `config.json` and then add your keys generated from your *Binance API*:
 ```json
 "BinanceAPI": {
   "key": "<binance_futures_api_key>",
