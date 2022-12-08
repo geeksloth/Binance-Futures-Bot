@@ -39,7 +39,7 @@ git clone https://github.com/geeksloth/binance-futures-bot.git && cd binance-fut
     "enable": false,
     "crypto": "BTC",
     "asset": "BUSD",
-    "strategy": "MACDez",
+    "strategy": "basic",
     "interval_seconds": 180,
     "color":"LIGHTYELLOW_EX"
   },
