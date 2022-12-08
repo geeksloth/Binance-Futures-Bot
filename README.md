@@ -124,5 +124,5 @@ elif self.strategy == "MACDez":
   self.print("{} just {}, current position state: {}".format(self.strategy, action, self.positionState))
 ```
 
-## Share with love
-If you discover the incredible strategy, please tell me too *3* Big hug!
+## Shared with love
+If you discover the incredible strategy, please tell me too. Big hug!!!
