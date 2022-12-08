@@ -7,9 +7,9 @@ A Rules-based Binance Futures trading bot. Implemented since early 2021, but sti
 
 ![SS](static/ss.jpg)
 
-> This bot invented by compilation of the famous technical analysis library [TA-LIB](http://ta-lib.org), Python-Binance, Binance-Futures-Connector, and other. The main features of this bot are:
+> This bot invented by compilation of the famous technical analysis library [TA-LIB](http://ta-lib.org), Python-Binance, Binance-Futures-Connector, and others. The main features of this bot are:
 > * Multiple Pairs trade simultaneously
-> * Smooth working (as silk lol) with error exception handling
+> * Smooth working (as silk, lol) with error exception handling
 > * Retry if failed for every possible technical failures
 > * Customable your own trading strategy
 > * LINE Notification for important events
