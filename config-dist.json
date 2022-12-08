@@ -1,0 +1,35 @@
+{
+	"action": true,
+	"customWD":{
+		"enable": false,
+		"linux": "/bot",
+		"windows": "C:\\bots"
+	},
+	"BinanceAPI":{
+		"name": "jakt_0_18",
+		"key": "<binance_futures_api_key>",
+		"secret": "<binance_futures_api_secret>",
+		"base_url": "https://fapi.binance.com"
+	},
+	"LINE":{
+		"token":"<api_token>",
+		"enable": false
+	},
+	"pairs":[
+		{
+			"enable": false,
+			"crypto": "BTC",
+			"asset": "BUSD",
+			"strategy": "MACDez",
+			"interval_seconds": 180,
+			"color":"LIGHTYELLOW_EX"
+		},{
+			"enable": true,
+			"crypto": "ADA",
+			"asset": "BUSD",
+			"strategy": "test",
+			"interval_seconds": 10,
+			"color":"LIGHTMAGENTA_EX"
+		}
+	]
+}

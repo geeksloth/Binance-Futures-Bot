@@ -1,0 +1,10 @@
+version: '3'
+services:
+  bot:
+    build:
+      dockerfile: "Dockerfile"
+      context: .
+    volumes:
+      - .:/bot
+    working_dir: /bot
+    command: ["python3", "jakt_v0.18.py"]
