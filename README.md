@@ -42,6 +42,9 @@ git clone https://github.com/geeksloth/binance-futures-bot.git && cd binance-fut
     "strategy": "MACDez",
     "interval_seconds": 180,
     "color":"LIGHTYELLOW_EX"
+  },
+  {
+    ...
   }
 ]
 ```
