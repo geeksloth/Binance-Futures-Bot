@@ -44,7 +44,7 @@ git clone https://github.com/geeksloth/binance-futures-bot.git && cd binance-fut
     "color":"LIGHTYELLOW_EX"
   },
   {
-    ...
+  
   }
 ]
 ```
