@@ -67,9 +67,62 @@ if self.strategy == "basic":
       predict = 'short'
 ```
 
+
 ## Kick it run
 After your customization is finished, run the JAKT-bot by:
 ```bash
 docker-compose up
 ```
 That's it! Take your time :)
+
+
+## More complex strategy
+If you like to chanllenge yourself, see following strategy and then invent some by your self:
+```python
+elif self.strategy == "MACDez":
+  action="doing nothing"
+  tf="3m"
+
+  closing_data = self.fetch(tf, 200)
+  indy["QTY_percent"] = 50
+  indy["QTY"] = self.calQTY(closing_data[0], percent=indy["QTY_percent"])
+  indy[tf]["MACD_zcross"] = self.getMACD_zcross(closing_data, fastperiod=66, slowperiod=100, signalperiod=33)
+  indy[tf]["MACD_vector"] = self.getMACD_vector(closing_data, fastperiod=66, slowperiod=100, signalperiod=33, step=1)
+  self.pprint(indy)
+
+  if self.positionState == "closed":
+    # this condition is to consider when should taking long or short
+    if (indy[tf]["MACD_zcross"] == "nnp"):
+      # taking long position
+      self.long(indy["QTY"])
+      action="open longed order"
+    elif (indy[tf]["MACD_zcross"] == "ppn"):
+      # taking short position
+      self.short(indy["QTY"])
+      action="open shorted order"
+    else:
+      action="waiting for the top and the dip"
+
+  elif self.positionState == "longed":
+    if indy[tf]["MACD_vector"] == "udd" or indy[tf]["MACD_vector"] == "ddd":
+      # taking close position
+      self.close(indy["QTY"])
+      action="close a longed position"
+    else:
+      action="let longed profit run"
+
+  elif self.positionState == "shorted":
+    if indy[tf]["MACD_vector"] == "duu" or indy[tf]["MACD_vector"] == "uuu":
+      # taking  close position
+      self.close(indy["QTY"])
+      action="close a shorted position"
+    else:
+      action="let shorted profit run"
+  else:
+    self.print("self.positionState invalid: {}".format(self.positionState))
+
+  self.print("{} just {}, current position state: {}".format(self.strategy, action, self.positionState))
+```
+
+## Share with love
+If you discover the incredible strategy, please tell me too *3* Big hug!
