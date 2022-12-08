@@ -76,7 +76,7 @@ docker-compose up
 That's it! Take your time :)
 
 
-## More complex strategy
+## More complex strategy [Optional]
 If you like to chanllenge yourself, see following strategy and then invent some by your self:
 ```python
 elif self.strategy == "MACDez":
