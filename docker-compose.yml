@@ -7,4 +7,4 @@ services:
     volumes:
       - .:/bot
     working_dir: /bot
-    command: ["python3", "jakt_v0.18.py"]
+    command: ["python3", "jakt_v0.18.1.py"]

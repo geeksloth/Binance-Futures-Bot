@@ -19,7 +19,5 @@ WORKDIR /bot
 RUN python3 -m pip install \
     requests 
 RUN python3 -m pip install \
-#    python-binance \
-#    binance-future \
     binance-futures-connector
-RUN apt-get install iputils-ping
+RUN apt-get install -y iputils-ping
