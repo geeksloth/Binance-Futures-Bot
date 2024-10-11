@@ -1,10 +1,15 @@
-version: '3'
+version: '3.2'
 services:
-  bot:
+  binancesloth:
     build:
       dockerfile: "Dockerfile"
       context: .
+    container_name: "binancesloth"
     volumes:
-      - .:/bot
-    working_dir: /bot
-    command: ["python3", "jakt_v0.18.1.py"]
+      - type: bind
+        source: ./
+        target: /app/binancesloth
+    working_dir: /app/binancesloth
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    command: ["python3", "main-v1.py", "-c", "/app/binancesloth/config/config.Aom.json"]
