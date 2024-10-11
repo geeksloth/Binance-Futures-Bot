@@ -1,7 +1,7 @@
 # JAKT: Rules-based Binance Futures Bot
 
 ![Tests](https://github.com/mrjbq7/ta-lib/actions/workflows/tests.yml/badge.svg)
-![MadeWithLove](https://camo.githubusercontent.com/ff817852f0d676a36eaa3108d380e0052e689d9e0bc3eb42818fb21008708420/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4d616465253230576974682d4c6f76652d6f72616e67652e737667)
+![GeekSloth Channel](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)
 
 A Rules-based Binance Futures trading bot. Implemented since early 2021, but still work properly till now (late 2022).
 
