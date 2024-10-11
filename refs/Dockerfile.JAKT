@@ -1,0 +1,43 @@
+FROM python:3.9.10-alpine
+ENV PYTHON_TA_LIB_PACKAGE_NAME "TA-lib"
+ENV PYTHON_TA_LIB_VERSION "0.4.28"
+
+#RUN apt-get update && apt install -y python3-numpy gcc make
+#RUN pip install python-binance && \
+#pip install numpy && \
+#pip install binance-future && \
+#pip install binance-futures-connector
+
+USER root
+WORKDIR /tmp
+
+RUN apk add --no-cache --virtual .build-deps \
+	musl-dev \
+	linux-headers \
+	gcc \
+	g++ \
+	make \
+	curl \
+	libffi-dev
+
+#RUN ap install libffi-dev
+
+RUN pip3 install cffi
+RUN cd /tmp \
+    && curl -L -O http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz \
+    && tar -zxf ta-lib-0.4.0-src.tar.gz \
+    && cd ta-lib/ \
+    && sed -i 's/^#define TA_IS_ZERO(v).*$/#define TA_IS_ZERO(v) (((-0.000000000000000001)<v)\&\&(v<0.000000000000000001))/' src/ta_func/ta_utility.h \
+    && sed -i 's/^#define TA_IS_ZERO_OR_NEG(v).*$/#define TA_IS_ZERO_OR_NEG(v) (v<0.000000000000000001)/' src/ta_func/ta_utility.h \
+    && ./configure --prefix=/usr \
+    && make \
+    && make install \
+    && pip3 install setuptools numpy \
+    && pip3 install ${PYTHON_TA_LIB_PACKAGE_NAME}==${PYTHON_TA_LIB_VERSION}
+
+WORKDIR /root
+
+RUN pip3 install python-binance
+RUN pip3 install binance-future
+RUN pip3 install binance-futures-connector
+RUN pip3 install tabulate
